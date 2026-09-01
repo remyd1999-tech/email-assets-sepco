@@ -3,10 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Signature e-mail SEPCO</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+  <title>Signatures e-mail SEPCO</title>
   <style>
 :root {
   --ink: #121212;
@@ -15,8 +12,7 @@
   --paper: #f3f1ec;
   --surface: #ffffff;
   --accent: #1a1a1a;
-  --serif: "Instrument Serif", "Times New Roman", serif;
-  --sans: "DM Sans", Arial, Helvetica, sans-serif;
+  --sans: Arial, Helvetica, sans-serif;
 }
 
 *,
@@ -54,8 +50,9 @@ body {
 
 .brand {
   margin: 0 0 8px;
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: clamp(2.75rem, 6vw, 4rem);
+  font-weight: 700;
   letter-spacing: 0.04em;
   line-height: 1;
 }
@@ -82,32 +79,49 @@ main > section {
   animation: rise 0.7s ease both;
 }
 
-.preview-section {
-  animation-delay: 0.08s;
-}
-
-.code-section {
-  animation-delay: 0.16s;
-}
-
-.install-section {
-  animation-delay: 0.24s;
-}
-
-.note-section {
-  animation-delay: 0.32s;
-}
+.preview-section { animation-delay: 0.08s; }
+.code-section { animation-delay: 0.24s; }
+.install-section { animation-delay: 0.16s; }
 
 .section-head h2 {
   margin: 0 0 6px;
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: 1.85rem;
-  font-weight: 400;
+  font-weight: 700;
 }
 
 .section-head p {
   margin: 0 0 18px;
   color: var(--muted);
+}
+
+.person-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.person-picker button {
+  appearance: none;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.person-picker button:hover {
+  border-color: var(--ink);
+}
+
+.person-picker button.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
 }
 
 .mail-frame {
@@ -222,15 +236,11 @@ pre {
   gap: 16px;
 }
 
-.install-grid article {
-  padding: 0;
-}
-
 .install-grid h3 {
   margin: 0 0 10px;
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: 1.35rem;
-  font-weight: 400;
+  font-weight: 700;
 }
 
 .install-grid ol {
@@ -244,31 +254,6 @@ pre {
   margin-top: 6px;
 }
 
-.note-section {
-  padding-top: 8px;
-  border-top: 1px solid var(--line);
-}
-
-.note-section h2 {
-  margin: 0 0 8px;
-  font-family: var(--serif);
-  font-size: 1.5rem;
-  font-weight: 400;
-}
-
-.note-section p {
-  margin: 0;
-  color: var(--muted);
-  max-width: 42rem;
-}
-
-.note-section code,
-.install-grid code {
-  font-size: 0.85em;
-  background: rgba(0, 0, 0, 0.06);
-  padding: 1px 4px;
-}
-
 .site-footer {
   margin-top: 48px;
   padding-top: 16px;
@@ -277,8 +262,10 @@ pre {
   font-size: 0.85rem;
 }
 
-.site-footer a {
-  color: var(--ink);
+.install-grid code {
+  font-size: 0.85em;
+  background: rgba(0, 0, 0, 0.06);
+  padding: 1px 4px;
 }
 
 @keyframes rise {
@@ -305,48 +292,168 @@ pre {
     padding: 22px 16px 26px;
   }
 }
-
   </style>
 </head>
 <body>
   <div id="app"></div>
   <script>
-const SIGNATURE = "<table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" role=\"presentation\" style=\"width:100%; max-width:100%; border-collapse:collapse; border-spacing:0; mso-table-lspace:0pt; mso-table-rspace:0pt; font-family:'Times New Roman', Times, Georgia, serif;\">\n  <tr>\n    <td bgcolor=\"#000000\" height=\"1\" style=\"background-color:#000000; height:1px; line-height:1px; font-size:1px; mso-line-height-rule:exactly;\">&nbsp;</td>\n  </tr>\n  <tr>\n    <td style=\"padding:16px 0 12px 0;\">\n      <a href=\"https://www.sepco.be\" target=\"_blank\" style=\"text-decoration:none; border:0;\">\n        <img\n          src=\"https://remyd1999-tech.github.io/email-assets-sepco/Logo.png\"\n          width=\"200\"\n          height=\"31\"\n          alt=\"SEPCO\"\n          border=\"0\"\n          style=\"display:block; border:0; outline:none; text-decoration:none; width:200px; max-width:200px; height:auto;\"\n        />\n      </a>\n    </td>\n  </tr>\n  <tr>\n    <td style=\"padding:0; font-family:'Times New Roman', Times, Georgia, serif; font-size:16px; line-height:18px; color:#8a8a8a;\">\n      BE540 256 321 452<br />\n      <a href=\"tel:+32457546258\" style=\"color:#8a8a8a; text-decoration:none; font-family:'Times New Roman', Times, Georgia, serif; font-size:16px; line-height:18px;\">+ 32 457 54 62 58</a><br />\n      <a href=\"https://www.sepco.be\" target=\"_blank\" style=\"color:#8a8a8a; text-decoration:none; font-family:'Times New Roman', Times, Georgia, serif; font-size:16px; line-height:18px;\">www.sepco.be</a>\n    </td>\n  </tr>\n  <tr>\n    <td style=\"padding:14px 0 0 0; font-family:'Times New Roman', Times, Georgia, serif; font-size:16px; line-height:18px; color:#8a8a8a;\">\n      SEPCO<br />\n      Avenue Zenobe Gramme 30<br />\n      1300 Wavre, Belgique\n    </td>\n  </tr>\n</table>";
+const LOGO_URL = 'https://remyd1999-tech.github.io/email-assets-sepco/Logo.png';
+const FONT = "Arial, Helvetica, sans-serif";
+const FOOTER_STYLE = `font-family:${FONT}; font-size:14px; line-height:18px; color:rgba(0,0,0,0.6);`;
+
+const EMPLOYEES = [
+  {
+    id: 'sandrine',
+    firstName: 'Sandrine',
+    name: 'Sandrine Desimpelaere',
+    titleLines: ['Office Manager'],
+  },
+  {
+    id: 'fabienne',
+    firstName: 'Fabienne',
+    name: 'Fabienne Steyaert',
+    titleLines: ['Senior Accountant'],
+  },
+  {
+    id: 'julien',
+    firstName: 'Julien',
+    name: 'Julien Lefranc',
+    titleLines: ['Accountant'],
+  },
+  {
+    id: 'adrien',
+    firstName: 'Adrien',
+    name: 'Adrien Sepulchre',
+    titleLines: [
+      'Administrateur | Candidat Expert-Comptable ITAA',
+      'n° ITAA 14.036.910',
+    ],
+  },
+  {
+    id: 'philippe',
+    firstName: 'Philippe',
+    name: 'Philippe Sepulchre',
+    titleLines: [
+      'Administrateur | Expert-Comptable Fiscaliste ITAA',
+      'n° ITAA 11.112.156',
+    ],
+  },
+  {
+    id: 'karla',
+    firstName: 'Karla',
+    name: 'Karla Yakhina',
+    titleLines: ['Senior Accountant'],
+  },
+];
+
+function buildSignature(employee) {
+  const titleHtml = employee.titleLines
+    .map((line) => `${line}<br />`)
+    .join('');
+
+  return `<table width="100%" border="0" cellspacing="0" cellpadding="0" role="presentation" style="width:100%; max-width:100%; border-collapse:collapse; border-spacing:0; mso-table-lspace:0pt; mso-table-rspace:0pt; font-family:${FONT};">
+  <tr>
+    <td style="padding:0 0 12px 0; font-family:${FONT}; font-size:16px; line-height:22px; color:#000000;">
+      <strong style="font-weight:700;">${employee.name}</strong><br />
+      ${titleHtml}
+    </td>
+  </tr>
+  <tr>
+    <td bgcolor="#000000" height="1" style="background-color:#000000; height:1px; line-height:1px; font-size:1px; mso-line-height-rule:exactly;">&nbsp;</td>
+  </tr>
+  <tr>
+    <td style="padding:16px 0 14px 0;">
+      <a href="https://www.sepco.be" target="_blank" style="text-decoration:none; border:0;">
+        <img
+          src="${LOGO_URL}"
+          width="180"
+          height="28"
+          alt="SEPCO"
+          border="0"
+          style="display:block; border:0; outline:none; text-decoration:none; width:180px; max-width:180px; height:auto;"
+        />
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td style="padding:0; ${FOOTER_STYLE}">
+      Avenue Zenobe Gramme 30<br />
+      1300 Wavre, Belgique<br />
+      <span style="display:block; height:8px; line-height:8px; font-size:1px;">&nbsp;</span>
+      BE 1012.818.966<br />
+      <a href="tel:+3210243920" style="color:rgba(0,0,0,0.5); text-decoration:none; ${FOOTER_STYLE}">T. +32 10 24 39 20</a><br />
+      <a href="https://www.sepco.be" target="_blank" style="color:rgba(0,0,0,0.5); text-decoration:none; ${FOOTER_STYLE}">www.sepco.be</a>
+    </td>
+  </tr>
+</table>`;
+}
+
+let activeEmployee = EMPLOYEES[0];
+let currentSignature = buildSignature(activeEmployee);
+
 const app = document.getElementById('app');
 app.innerHTML = `
   <header class="site-header">
     <p class="brand">SEPCO</p>
-    <h1>Signature e-mail</h1>
+    <h1>Signatures e-mail</h1>
     <p class="lede">
-      HTML prêt pour Outlook, Apple Mail et Gmail — logo hébergé sur GitHub Pages,
-      avec un filet pleine largeur au-dessus.
+      Une signature par collaborateur — HTML prêt pour Outlook, Apple Mail et Gmail.
     </p>
   </header>
   <main>
     <section class="preview-section" aria-labelledby="preview-title">
       <div class="section-head">
         <h2 id="preview-title">Aperçu</h2>
-        <p>Simulation d’un message : le filet suit la largeur de la zone de lecture.</p>
+        <p>Sélectionnez un collaborateur, puis copiez la signature correspondante.</p>
       </div>
+      <div class="person-picker" id="person-picker" role="tablist" aria-label="Choisir un collaborateur"></div>
       <div class="mail-frame" id="mail-frame">
         <div class="mail-chrome">
           <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-          <span class="mail-label">Message · largeur adaptable</span>
+          <span class="mail-label" id="mail-label">Message · largeur adaptable</span>
         </div>
         <div class="mail-body">
-          <p class="fake-message">
-            Bonjour,<br /><br />
-            Voici le devis demandé. N’hésitez pas à me contacter pour toute question.<br /><br />
-            Cordialement,<br />
-            Adrien
-          </p>
-          <div class="signature-slot" id="signature-preview">${SIGNATURE}</div>
+          <p class="fake-message" id="fake-message"></p>
+          <div class="signature-slot" id="signature-preview"></div>
         </div>
         <div class="width-controls" role="group" aria-label="Largeur de prévisualisation">
           <button type="button" data-width="100%" class="active">Pleine largeur</button>
           <button type="button" data-width="640px">640px</button>
           <button type="button" data-width="420px">Mobile</button>
         </div>
+      </div>
+    </section>
+    <section class="install-section" aria-labelledby="install-title">
+      <div class="section-head">
+        <h2 id="install-title">Installation</h2>
+        <p>Procédure courte pour les trois clients principaux.</p>
+      </div>
+      <div class="install-grid">
+        <article>
+          <h3>Gmail</h3>
+          <ol>
+            <li>Paramètres → Voir tous les paramètres → Général</li>
+            <li>Descendre jusqu'à <em>Signature</em></li>
+            <li>Créer une signature, coller le HTML (mode riche)</li>
+            <li>Astuce : coller depuis l'aperçu de cette page fonctionne souvent mieux que le code brut</li>
+          </ol>
+        </article>
+        <article>
+          <h3>Apple Mail</h3>
+          <ol>
+            <li>Mail → Réglages → Signatures</li>
+            <li>Créer une signature, coller depuis l'aperçu de cette page</li>
+            <li>Optionnel : TextEdit en HTML brut, puis glisser le fichier dans Signatures</li>
+          </ol>
+        </article>
+        <article>
+          <h3>Outlook</h3>
+          <ol>
+            <li>Fichier → Options → Courrier → Signatures</li>
+            <li>Nouvelle signature, coller depuis l'aperçu (pas le code source)</li>
+            <li>Le filet <code>width="100%"</code> s'adapte à la zone de composition</li>
+          </ol>
+        </article>
       </div>
     </section>
     <section class="code-section" aria-labelledby="code-title">
@@ -360,46 +467,50 @@ app.innerHTML = `
       </div>
       <pre><code id="signature-code"></code></pre>
     </section>
-    <section class="install-section" aria-labelledby="install-title">
-      <div class="section-head">
-        <h2 id="install-title">Installation</h2>
-        <p>Procédure courte pour les trois clients principaux.</p>
-      </div>
-      <div class="install-grid">
-        <article>
-          <h3>Gmail</h3>
-          <ol>
-            <li>Paramètres → Voir tous les paramètres → Général</li>
-            <li>Descendre jusqu’à <em>Signature</em></li>
-            <li>Créer une signature, coller le HTML (mode riche)</li>
-            <li>Astuce : coller depuis l’aperçu de cette page fonctionne souvent mieux que le code brut</li>
-          </ol>
-        </article>
-        <article>
-          <h3>Apple Mail</h3>
-          <ol>
-            <li>Mail → Réglages → Signatures</li>
-            <li>Créer une signature, coller depuis l’aperçu de cette page</li>
-            <li>Optionnel : TextEdit en HTML brut, puis glisser le fichier dans Signatures</li>
-          </ol>
-        </article>
-        <article>
-          <h3>Outlook</h3>
-          <ol>
-            <li>Fichier → Options → Courrier → Signatures</li>
-            <li>Nouvelle signature, coller depuis l’aperçu (pas le code source)</li>
-            <li>Le filet <code>width="100%"</code> s’adapte à la zone de composition</li>
-          </ol>
-        </article>
-      </div>
-    </section>
   </main>
   <footer class="site-footer">
-    <p>Lien public à envoyer au client : cette page sur GitHub Pages.</p>
+    <p>Lien public : cette page sur GitHub Pages.</p>
   </footer>
 `;
 
-document.getElementById('signature-code').textContent = SIGNATURE;
+const personPicker = document.getElementById('person-picker');
+const signaturePreview = document.getElementById('signature-preview');
+const signatureCode = document.getElementById('signature-code');
+const fakeMessage = document.getElementById('fake-message');
+const mailLabel = document.getElementById('mail-label');
+
+function renderEmployee(employee) {
+  activeEmployee = employee;
+  currentSignature = buildSignature(employee);
+  signaturePreview.innerHTML = currentSignature;
+  signatureCode.textContent = currentSignature;
+  fakeMessage.innerHTML = `
+    Bonjour,<br /><br />
+    Voici le devis demandé. N'hésitez pas à me contacter pour toute question.<br /><br />
+    Cordialement,<br />
+    ${employee.firstName}
+  `;
+  mailLabel.textContent = `Signature · ${employee.name}`;
+
+  personPicker.querySelectorAll('button').forEach((btn) => {
+    btn.classList.toggle('active', btn.dataset.id === employee.id);
+    btn.setAttribute('aria-selected', btn.dataset.id === employee.id ? 'true' : 'false');
+  });
+}
+
+EMPLOYEES.forEach((employee) => {
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.textContent = employee.name;
+  btn.dataset.id = employee.id;
+  btn.setAttribute('role', 'tab');
+  btn.setAttribute('aria-selected', employee.id === activeEmployee.id ? 'true' : 'false');
+  btn.addEventListener('click', () => renderEmployee(employee));
+  personPicker.appendChild(btn);
+});
+
+renderEmployee(activeEmployee);
+
 const mailFrame = document.getElementById('mail-frame');
 document.querySelectorAll('.width-controls button').forEach((btn) => {
   btn.addEventListener('click', () => {
@@ -408,12 +519,14 @@ document.querySelectorAll('.width-controls button').forEach((btn) => {
     mailFrame.style.setProperty('--frame-width', btn.dataset.width || '100%');
   });
 });
+
 const copyBtn = document.getElementById('copy-btn');
 const copyStatus = document.getElementById('copy-status');
 const codeEl = document.getElementById('signature-code');
+
 copyBtn.addEventListener('click', async () => {
   try {
-    await navigator.clipboard.writeText(SIGNATURE);
+    await navigator.clipboard.writeText(currentSignature);
     copyStatus.textContent = 'Copié dans le presse-papiers';
   } catch {
     const range = document.createRange();
