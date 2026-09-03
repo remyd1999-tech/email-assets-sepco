@@ -170,6 +170,7 @@ main > section {
 
 .signature-slot {
   width: 100%;
+  overflow: auto;
 }
 
 .width-controls {
@@ -299,7 +300,18 @@ pre {
   <script>
 const LOGO_URL = 'https://remyd1999-tech.github.io/email-assets-sepco/Logo.png';
 const FONT = "Arial, Helvetica, sans-serif";
-const FOOTER_STYLE = `font-family:${FONT}; font-size:14px; line-height:18px; color:rgba(0,0,0,0.6);`;
+const MUTED = '#666666';
+const FOOTER_STYLE = `font-family:${FONT}; font-size:14px; line-height:18px; color:${MUTED};`;
+const PLAIN = `color:${MUTED}; text-decoration:none;`;
+
+function plainText(html) {
+  return `<a href="https://www.sepco.be" style="${PLAIN}" x-apple-data-detectors="false"><span style="${PLAIN}">${html}</span></a>`;
+}
+
+function plainLink(href, label, extra = '') {
+  const attrs = extra ? ` ${extra}` : '';
+  return `<a href="${href}"${attrs} style="${PLAIN} ${FOOTER_STYLE}"><span style="${PLAIN}">${label}</span></a>`;
+}
 
 const EMPLOYEES = [
   {
@@ -351,7 +363,7 @@ function buildSignature(employee) {
     .map((line) => `${line}<br />`)
     .join('');
 
-  return `<table width="100%" border="0" cellspacing="0" cellpadding="0" role="presentation" style="width:100%; max-width:100%; border-collapse:collapse; border-spacing:0; mso-table-lspace:0pt; mso-table-rspace:0pt; font-family:${FONT};">
+  return `<table width="1" border="0" cellspacing="0" cellpadding="0" role="presentation" style="width:auto; max-width:100%; border-collapse:collapse; border-spacing:0; mso-table-lspace:0pt; mso-table-rspace:0pt; font-family:${FONT};">
   <tr>
     <td style="padding:0 0 12px 0; font-family:${FONT}; font-size:16px; line-height:22px; color:#000000;">
       <strong style="font-weight:700;">${employee.name}</strong><br />
@@ -362,20 +374,19 @@ function buildSignature(employee) {
     <td bgcolor="#000000" height="1" style="background-color:#000000; height:1px; line-height:1px; font-size:1px; mso-line-height-rule:exactly;">&nbsp;</td>
   </tr>
   <tr>
-    <td bgcolor="#ffffff" style="padding:16px 0 14px 0; background-color:#ffffff;">
+    <td bgcolor="#ffffff" style="padding:16px 0 14px 0; background-color:#ffffff; font-family:${FONT}; font-size:16px; line-height:22px;">
       <a href="https://www.sepco.be" target="_blank" style="text-decoration:none; border:0;">
         <img src="${LOGO_URL}" width="180" height="28" alt="SEPCO" border="0" style="display:block; border:0; outline:none; text-decoration:none; width:180px; height:28px; -ms-interpolation-mode:bicubic;" />
       </a>
     </td>
   </tr>
   <tr>
-    <td style="padding:0; ${FOOTER_STYLE}">
-      Avenue Zénobe Gramme 30<br />
-      1300 Wavre, Belgique<br />
+    <td x-apple-data-detectors="false" style="padding:0; ${FOOTER_STYLE}">
+      ${plainText(`Avenue Zénobe Gramme 3&#8203;0<br />1&#8203;300 Wavre, Belgique`)}<br />
       <span style="display:block; height:8px; line-height:8px; font-size:1px;">&nbsp;</span>
       BE 1012.818.966<br />
-      <a href="tel:+3210243920" style="color:rgba(0,0,0,0.5); text-decoration:none; ${FOOTER_STYLE}">T. +32 10 24 39 20</a><br />
-      <a href="https://www.sepco.be" target="_blank" style="color:rgba(0,0,0,0.5); text-decoration:none; ${FOOTER_STYLE}">www.sepco.be</a>
+      ${plainLink('tel:+3210243920', 'T. +32 10 24 39 20')}<br />
+      ${plainLink('https://www.sepco.be', 'www.sepco.be', 'target="_blank"')}
     </td>
   </tr>
 </table>`;
@@ -444,7 +455,7 @@ app.innerHTML = `
           <ol>
             <li>Fichier → Options → Courrier → Signatures</li>
             <li>Nouvelle signature, coller depuis l'aperçu (pas le code source)</li>
-            <li>Le filet <code>width="100%"</code> s'adapte à la zone de composition</li>
+            <li>Le filet suit la largeur du texte, pas celle de la fenêtre</li>
           </ol>
         </article>
       </div>
